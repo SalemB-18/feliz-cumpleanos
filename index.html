@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Mejor Amigo!</title>
+    <!-- FontAwesome para iconos de flechas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Menú Superior / Header -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-heart"></i> Best Friends
+        </div>
+        <nav>
+    <a href="index.html">Inicio</a>
+    <a href="recuerdos.html">Recuerdos</a>
+    <a href="mensaje.html">Mensaje</a>
+</nav>
+        <div class="user-greeting">¡Feliz Cumpleaños, Gordo Pendejo! 🎉</div>
+    </header>
+
+    <!-- Slider Principal (Fondos + Textos) -->
+    <div class="slider-container">
+        
+        <!-- Lista de Slides (Fondos + Mensajes) -->
+        <div class="background-list">
+            <div class="item active" data-index="0">
+                <img src="img/tercero.jpeg" class="bg-img" alt="Fondo Bob Esponja 1">
+                <div class="content">
+                    <p class="subtitle">UN DÍA ESPECIAL</p>
+                    <h1 class="title">¡FELIZ CUMPLEAÑOS!</h1>
+                    <p class="description">Hoy cumples 20 añitos gordo, la existencia de una de las personas más increíbles que conozco. Gracias por estar siempre ahí, por las risas e historias compartidas.</p>
+                    <a href="recuerdos.html" class="explore-btn">Ver más recuerdos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="item" data-index="1">
+                <img src="img/segundo.jpg" class="bg-img" alt="Fondo Bob Esponja 2">
+                <div class="content">
+                    <p class="subtitle">EL DÍA DE ALAN</p>
+                    <h1 class="title">GRACIAS POR TODO</h1>
+                    <p class="description">A través de los años, Entre momentos random y recuerdos que merecían ser guardados, aquí queda un pequeño recorrido por todos estos años. No hay amigo más leal, genuino y divertido que un Alan.</p>
+                    <a href="recuerdos.html" class="explore-btn">Ver más recuerdos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="item" data-index="2">
+                <img src="img/primero.jpeg" class="bg-img" alt="Fondo Bob Esponja 3">
+                <div class="content">
+                    <p class="subtitle">LO MUCHO QUE IMPORTAS</p>
+                    <h1 class="title">SIEMPRE ESCUCHANDO</h1>
+                    <p class="description">Gracias por tantos momentos, risas, conversaciones y por estar presente de una u otra forma.
+Espero que este nuevo año te traiga muchas cosas buenas, porque de verdad te las mereces. Feliz cumpleaños, Alan.</p>
+                    <button class="explore-btn">Ver más recuerdos <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="item" data-index="3">
+                <img src="img/cuarto.jpg" class="bg-img" alt="Fondo Bob Esponja 4">
+                <div class="content">
+                    <p class="subtitle">UNA PERSONA UNICA</p>
+                    <h1 class="title">POR MÁS AÑOS JODIENDO</h1>
+                    <p class="description">Alan eres de esas personas que sin darse cuenta, terminan dejando una pequeña huella en quienes te rodean. Tienes tu propia forma de ver las cosas, tus ocurrencias, tus manera de hacer reír y, por supuesto, sus momentos de cringe</p>
+                    <button class="explore-btn">Ver más recuerdos <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor de Tarjetas Pequeñas de Recuerdos (Sli de Tarjetas) -->
+        <div class="thumbnail-container">
+            <div class="thumbnail-card active" data-index="0">
+                <img src="img/A9.jpeg" alt="Cada A1">
+                <div class="card-info"><h3>WHEN HACES TUS CARTAS</h3><p>El mejores amigo</p></div>
+                <div class="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+            </div>
+            <div class="thumbnail-card" data-index="1">
+                <img src="img/A1.jpeg" alt="Dia A2">
+                <div class="card-info"><h3> EN PAGINA WEB </h3><p>Momentos ramdon</p></div>
+                <div class="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+            </div>
+            <div class="thumbnail-card" data-index="2">
+                <img src="img/A5.jpeg" alt="Mas A3">
+                <div class="card-info"><h3>EL FUTURO ES HOY VIEJO</h3><p>Un año más viejo, pero aparentemente igual de menso.</p></div>
+                <div class="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+            </div>
+            <div class="thumbnail-card" data-index="3">
+                <img src="img/A8.jpeg" alt="Gordo A4">
+                <div class="card-info"><h3> :V XDDD</h3><p>Feliz cumple, causa</p></div>
+                <div class="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+            </div>
+        </div>
+
+        <!-- Botones de Navegación -->
+        <div class="arrows">
+            <button id="prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Indicador de Página (Puntos) -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

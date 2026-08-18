@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Recuerdos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-heart"></i> Best Friends
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="recuerdos.html" class="active">Recuerdos</a>
+            <a href="mensaje.html" class="active">Mensaje</a>
+        </nav>
+        <div class="user-greeting">¡Feliz Cumpleaños! 🎉</div>
+    </header>
+
+    <!-- Vista de Galería Principal (Estilo Dashboard) -->
+    <div class="recuerdos-hero">
+        <!-- Imagen A11 como fondo -->
+        <img src="img/finn.jpeg" class="bg-img" alt="Foto Principal A11">
+
+        <div class="recuerdos-content">
+            <span class="badge"><i class="fa-solid fa-sparkles"></i>PERRO GORDO</span>
+            <h1 class="title">LA PAPU AMISTAD :v</h1>
+            <p class="description">
+                 Quién diría que de la universidad iba a salir una amistad así. Entre distancia, conversaciones random, chismes, consejos y un montón de tonterías.
+            </p>
+            <a href="index.html" class="explore-btn"><i class="fa-solid fa-arrow-left"></i> Volver a Inicio</a>
+        </div>
+<!-- En la línea 38-40 -->
+<div class="featured-card">
+    <img src="img/A11.jpeg" id="imgA11" class="zoomable" alt="Foto A11">
+</div>
+
+<!-- Coloca este bloque al final de recuerdos.html, antes del </body> -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgExpanded">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+        <!-- Panel Inferior de Estadísticas (Basado en la foto de referencia) -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fa-solid fa-users"></i>
+                <div>
+                    <h3>10+ Años</h3>
+                    <p>De mas amistad</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-camera"></i>
+                <div>
+                    <h3>1,000+</h3>
+                    <p>Conversaciones random</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-face-laugh-beam"></i>
+                <div>
+                    <h3>100%</h3>
+                    <p>Risas y Confianza</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-glass-cheers"></i>
+                <div>
+                    <h3>Incontables</h3>
+                    <p>Historias por contar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
