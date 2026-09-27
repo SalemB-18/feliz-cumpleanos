@@ -1,128 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const backgroundList = document.querySelector('.slider-container .background-list');
-    const backgroundItems = document.querySelectorAll('.slider-container .background-list .item');
-    const thumbnailContainer = document.querySelector('.thumbnail-container');
-    const thumbnailCards = document.querySelectorAll('.thumbnail-card');
-    const nextBtn = document.getElementById('next');
-    const prevBtn = document.getElementById('prev');
-    const dots = document.querySelectorAll('.dots .dot');
+/* ==========================================
+   LLUVIA DE ESTRELLAS
+========================================== */
+const contenedorEstrellas = document.getElementById("lluvia-estrellas");
 
-    let currentIndex = 0;
-    const countItems = backgroundItems.length;
+function crearEstrella() {
+    const estrella = document.createElement("span");
+    estrella.className = "estrella-caida";
+    const formas = ["★", "✦", "✧", "⋆", "♡", "✿"];
+    estrella.textContent = formas[Math.floor(Math.random() * formas.length)];
+    estrella.style.left = Math.random() * 100 + "%";
+    estrella.style.fontSize = (Math.random() * 14 + 10) + "px";
+    estrella.style.setProperty("--drift", (Math.random() * 120 - 60) + "px");
+    const duracion = Math.random() * 5 + 6;
+    estrella.style.animationDuration = duracion + "s";
+    estrella.style.animationDelay = (Math.random() * 1.5) + "s";
+    const colores = ["#fff", "#ffe5f1", "#ff72ae", "#ffd5e7", "#e8d5ff", "#fff4b8"];
+    estrella.style.color = colores[Math.floor(Math.random() * colores.length)];
+    contenedorEstrellas.appendChild(estrella);
+    setTimeout(() => estrella.remove(), (duracion + 2) * 1000);
+}
 
-    // Función para actualizar la vista activa (sincroniza fondo, tarjetas y puntos)
-    function updateActiveState(index) {
-        // Remover clase activa de fondo, tarjeta y punto actual
-        document.querySelector('.background-list .item.active').classList.remove('active');
-        document.querySelector('.thumbnail-container .thumbnail-card.active').classList.remove('active');
-        document.querySelector('.dots .dot.active').classList.remove('active');
+for (let i = 0; i < 28; i++) setTimeout(crearEstrella, i * 180);
+setInterval(crearEstrella, 420);
 
-        // Asignar clase activa al nuevo índice
-        backgroundItems[index].classList.add('active');
-        thumbnailCards[index].classList.add('active');
-        dots[index].classList.add('active');
 
-        // Efecto de deslizamiento de tarjetas: reordenamos el DOM para que la activa sea la primera
-        if(thumbnailContainer.contains(thumbnailCards[index])) {
-            thumbnailContainer.appendChild(thumbnailCards[index]); // Mover al final para que sea la primera visualmente al deslizar
-        }
+/* ==========================================
+   CONTROLADOR DE MÚSICA LOCAL (BOTÓN ROSA)
+========================================== */
+let isPlaying = false;
+
+function toggleMusic() {
+    const audio = document.getElementById('peppa-audio');
+    
+    if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+    } else {
+        audio.pause();
+        isPlaying = false;
     }
+}
 
-    // Función de reordenamiento DOM para mantener la lógica de tarjetas siguientes
-    function moveThumbnails() {
-        // Obtenemos todas las tarjetas de nuevo para el orden actual
-        const currentThumbs = document.querySelectorAll('.thumbnail-card');
-        thumbnailContainer.prepend(currentThumbs[currentThumbs.length - 1]); // Movemos la última al principio
+// Conservamos también la función de desplazamiento por si la usas
+function irCumple() { 
+    document.getElementById("cumple").scrollIntoView({ behavior: "smooth", block: "start" }); 
+}
+
+
+/* ==========================================
+   CONTADOR (PERFECTO Y FUNCIONANDO)
+========================================== */
+const fechaEvento = new Date("2026-10-03T18:00:00").getTime();
+
+function actualizarContador() {
+    const d = fechaEvento - Date.now();
+    
+    if (d <= 0) {
+        ["dias", "horas", "minutos", "segundos"].forEach(id => document.getElementById(id).textContent = "00");
+        return;
     }
+    
+    document.getElementById("dias").textContent = String(Math.floor(d / 86400000)).padStart(2, "0");
+    document.getElementById("horas").textContent = String(Math.floor(d / 3600000) % 24).padStart(2, "0");
+    document.getElementById("minutos").textContent = String(Math.floor(d / 60000) % 60).padStart(2, "0");
+    document.getElementById("segundos").textContent = String(Math.floor(d / 1000) % 60).padStart(2, "0");
+}
 
-    // Botón Siguiente
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % countItems;
-        updateActiveState(currentIndex);
-    });
-
-    // Botón Anterior
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + countItems) % countItems;
-        updateActiveState(currentIndex);
-    });
-
-    // CLIC EN TARJETAS PEQUEÑAS - Al hacer clic, se vuelven el fondo principal
-    thumbnailCards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const indexAttribute = card.getAttribute('data-index');
-            if (indexAttribute !== null) {
-                currentIndex = parseInt(indexAttribute);
-                updateActiveState(currentIndex);
-            }
-        });
-    });
-
-    // Permitir clic en los puntos indicadores
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateActiveState(currentIndex);
-        });
-    });
-
-    // Cambio automático cada 8 segundos (opcional)
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % countItems;
-        updateActiveState(currentIndex);
-    }, 8000);
-});
-document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. ANIMACIÓN DE ENTRADA AL HACER SCROLL (Scroll Reveal)
-    const observerOptions = {
-        threshold: 0.15
-    };
-
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Seleccionar elementos para animar
-    const elementsToAnimate = document.querySelectorAll('.mini-card, .msg-card, .final-text, .final-media');
-    elementsToAnimate.forEach(el => {
-        el.classList.add('reveal-item');
-        revealOnScroll.observe(el);
-    });
-
-    // 2. EFECTO PARALLAX 3D TILT EN LAS TARJETAS (MOVIMIENTO SEGÚN EL MOUSE)
-    const cards = document.querySelectorAll('.msg-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (centerY - y) / 10;
-            const rotateY = (x - centerX) / 10;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        });
-    });
-
-    // 3. AMPLIA LA FOTO FINAL AL HACER CLIC
-    const finalPhoto = document.querySelector('.final-media img');
-    if (finalPhoto) {
-        finalPhoto.style.cursor = 'pointer';
-        finalPhoto.addEventListener('click', () => {
-            finalPhoto.classList.toggle('enlarged');
-        });
-    }
-});
+actualizarContador();
+setInterval(actualizarContador, 1000);

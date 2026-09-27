@@ -1,0 +1,489 @@
+/* ================================
+   TIPOGRAFÍA PEPPA PIG
+================================ */
+@font-face {
+    font-family: 'Peppa Pig Medium';
+    src: url('peppa.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Peppa Pig Medium', 'Fredoka', sans-serif;
+}
+
+body {
+    background-color: #ffd1e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ================================
+   CONTENEDOR PRINCIPAL / INVITACIÓN
+================================ */
+.invitacion {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 18px 20px 45px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(180deg, #f4a4ca 100%);
+}
+
+/* MANCHAS ROSAS */
+.invitacion::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 170px;
+    left: -180px;
+    top: -80px;
+    background: #ffc9df;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.invitacion::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 180px;
+    right: -200px;
+    bottom: -90px;
+    background: #ffc9df;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+/* ================================
+   SECCIÓN CELESTE
+================================ */
+.section-sky {
+    background: linear-gradient(to bottom, #8ed0ff 60%, #f4a4ca 100%);
+    position: relative;
+    padding: 20px 15px 30px 15px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ILUSTRACIONES ANIMADAS */
+.illustration {
+    position: absolute;
+    z-index: 1;
+}
+
+.illustration.rainbow {
+    position: absolute;
+    width: 65px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    animation: bounceRainbow 3s ease-in-out infinite alternate;
+}
+
+@keyframes bounceRainbow {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-6px) scale(1.05); }
+}
+
+.illustration.sun {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    animation: rotateSun 12s linear infinite;
+}
+
+@keyframes rotateSun {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-tag {
+    background-color: #ffd166;
+    color: #444;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.hero-text h1 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    color: #ffffff;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    padding: 0 5px;
+}
+
+/* BOTÓN DE MÚSICA */
+.div-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.btn-music {
+    background-color: #F78FBC;
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.btn-music:hover { transform: scale(1.05); }
+.btn-music:active { transform: scale(0.95); }
+
+.btn-icon-play {
+    background-color: #ffffff;
+    color: #F78FBC;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+}
+
+/* NUBES SEPARADORAS */
+.cloud-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 3;
+}
+
+.cloud-divider svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ================================
+   LOGO Y TÍTULOS
+================================ */
+.logo {
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 280px;
+    max-width: 75%;
+    height: auto;
+    margin: 0 auto 5px;
+    animation: pulsoLogo 4s ease-in-out infinite;
+}
+
+@keyframes pulsoLogo {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.03) rotate(1deg); }
+}
+
+.titulo {
+    position: relative;
+    z-index: 10;
+    margin: 0 0 15px;
+    color: white;
+    font-family: 'Peppa Pig Medium', sans-serif;
+    font-size: 39px;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 3px 0 rgba(180, 50, 110, .12);
+}
+
+/* ================================
+   ZONA FECHA Y PERSONAJES
+================================ */
+.zona-fecha {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fecha {
+    position: relative;
+    z-index: 5;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #e94d91;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 0 rgba(170, 50, 105, .12);
+    font-family: 'Peppa Pig Medium', sans-serif;
+    padding: 18px 0;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.dia-semana { font-size: 14px; font-weight: 600; line-height: 1; }
+.numero { font-size: 42px; font-weight: 700; line-height: 1; margin: 0; }
+.mes { font-size: 18px; font-weight: 600; line-height: 1; }
+
+.personaje {
+    position: absolute;
+    z-index: 8;
+    width: 155px;
+    height: 155px;
+    object-fit: contain;
+    animation: flotar 2.8s ease-in-out infinite;
+}
+
+.peppa { right: 80px; bottom: -10px; }
+.george { left: 80px; bottom: -15px; animation-delay: .5s; }
+
+@keyframes flotar {
+    0% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(-2deg); }
+}
+
+/* ================================
+   CONTADOR (CORREGIDO "FALTA POQUITO")
+================================ */
+
+/* TITULO "FALTA POQUITO" CON FUENTE Y COLOR CORRECTOS */
+.contador-titulo {
+    position: relative;
+    z-index: 10;
+    color: #ffffff;
+    font-family: 'Peppa Pig Medium', 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(180, 50, 110, 0.2);
+    margin: 15px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contador {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 480px;
+    margin: 12px auto 12px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 rgba(170, 50, 105, .08);
+}
+
+.tiempo { flex: 1; text-align: center; }
+
+.tiempo span, .contador .tiempo strong {
+    display: block;
+    color: #df3d88;
+    font-family: 'Peppa Pig Medium', 'Fredoka', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tiempo small, .contador .tiempo small {
+    display: block;
+    margin-top: 5px;
+    color: #df3d88;
+    font-family: 'Peppa Pig Medium', 'Fredoka', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.horario {
+    position: relative;
+    z-index: 10;
+    margin: 10px 0 18px;
+    color: white;
+    font-family: 'Peppa Pig Medium', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+}
+
+/* ================================
+   BOTONES DIRECCIÓN Y CONFIRMAR
+================================ */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 15px auto;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-location {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #df4d91;
+    color: white;
+    font-family: 'Peppa Pig Medium', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease;
+}
+
+.btn-confirmar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #df4d91;
+    font-family: 'Peppa Pig Medium', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease;
+}
+
+.btn-location img, .btn-confirmar img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.btn-location:hover, .btn-confirmar:hover { transform: scale(1.05); }
+
+/* ================================
+   ESTRELLAS QUE CAEN
+================================ */
+#lluvia-estrellas {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.estrella-caida {
+    position: absolute;
+    top: -50px;
+    color: white;
+    font-size: 20px;
+    opacity: .9;
+    animation: caer linear infinite;
+    filter: drop-shadow(0 2px 3px rgba(200, 50, 120, .15));
+}
+
+@keyframes caer {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: .9; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ================================
+   RESPONSIVE CELULAR
+================================ */
+@media (max-width: 600px) {
+    .invitacion {
+        min-height: 100vh;
+        padding: 12px 8px 35px;
+    }
+
+    .logo {
+        width: 245px;
+        max-width: 70%;
+    }
+
+    .titulo {
+        font-size: 31px;
+        margin-bottom: 10px;
+    }
+
+    .zona-fecha {
+        height: 135px;
+    }
+
+    .fecha {
+        width: 145px;
+        height: 115px;
+    }
+
+    .personaje {
+        width: 130px;
+        height: 130px;
+    }
+
+    .george { left: 15px; }
+    .peppa { right: 15px; }
+
+    .contador-titulo {
+        font-size: 20px;
+    }
+
+    .contador {
+        width: 94%;
+        padding: 13px 5px;
+    }
+
+    .tiempo span, .contador .tiempo strong {
+        font-size: 23px;
+    }
+
+    .horario {
+        font-size: 24px;
+    }
+}
